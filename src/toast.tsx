@@ -112,6 +112,8 @@ export interface ToastOptions {
   data?: any;
 
   swipeEnabled?: boolean;
+
+  pointerEvents?: 'box-none' | 'none' | 'box-only' | 'auto';
 }
 
 export interface ToastProps extends ToastOptions {
