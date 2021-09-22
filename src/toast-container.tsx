@@ -14,6 +14,7 @@ export interface Props extends ToastOptions {
   offsetTop?: number;
   offsetBottom?: number;
   swipeEnabled?: boolean;
+  pointerEvents?: 'box-none' | 'none' | 'box-only' | 'auto';
 }
 
 interface State {
