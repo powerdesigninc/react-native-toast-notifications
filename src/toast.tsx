@@ -42,6 +42,11 @@ export interface ToastOptions {
   placement?: "top" | "bottom";
 
   /**
+   * Customize style of toast container
+   */
+  containerStyle?: StyleProp<ViewStyle>;
+
+  /**
    * Customize style of toast
    */
   style?: StyleProp<ViewStyle>;
@@ -134,6 +139,7 @@ const Toast: FC<ToastProps> = (props) => {
     type = "normal",
     message,
     duration = 5000,
+    containerStyle,
     style,
     textStyle,
     animationDuration = 250,
@@ -315,7 +321,7 @@ const Toast: FC<ToastProps> = (props) => {
       ref={containerRef}
       pointerEvents={props.pointerEvents}
       {...(swipeEnabled ? getPanResponder().panHandlers : null)}
-      style={[styles.container, animationStyle]}
+      style={[styles.container, containerStyle, animationStyle]}
     >
       {props.renderType && props.renderType[type] ? (
         props.renderType[type](props)
