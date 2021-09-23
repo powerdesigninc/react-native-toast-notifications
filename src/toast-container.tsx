@@ -32,7 +32,9 @@ class ToastContainer extends Component<Props, State> {
   static defaultProps: Props = {
     placement: "bottom",
     offset: 10,
+    offsetTop: 30,
     swipeEnabled: true,
+    pointerEvents: 'box-only'
   };
 
   /**
@@ -113,7 +115,7 @@ class ToastContainer extends Component<Props, State> {
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "position" : undefined}
         style={[styles.container, style]}
-        pointerEvents="box-none"
+        pointerEvents={this.props.pointerEvents}
       >
         {toasts
           .filter((t) => !t.placement || t.placement === "bottom")
@@ -136,7 +138,7 @@ class ToastContainer extends Component<Props, State> {
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "position" : undefined}
         style={[styles.container, style]}
-        pointerEvents="box-none"
+        pointerEvents={this.props.pointerEvents}
       >
         {toasts
           .filter((t) => t.placement === "top")
