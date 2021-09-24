@@ -32,7 +32,7 @@ class ToastContainer extends Component<Props, State> {
   static defaultProps: Props = {
     placement: "bottom",
     offset: 10,
-    offsetTop: 30,
+    offsetTop: Platform.select({ ios : 30 }),
     swipeEnabled: true,
     pointerEvents: 'box-only'
   };
